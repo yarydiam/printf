@@ -19,7 +19,7 @@ int	ft_putstr(char *str)
 	i = 0;
 
 	if (!str)
-		return(ft_putstr("(null)"));
+		return (ft_putstr ("(null)"));
 	while (str[i])
 	{
 		ft_putchar(str[i]);
