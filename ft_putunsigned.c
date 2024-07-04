@@ -19,7 +19,7 @@ int	ft_putunsigned(unsigned int num)
 	i = 0;
 	if (num > 9)
 	{
-		i += ft_putunsigned(num /10);
+		i += ft_putunsigned(num / 10);
 		i += ft_putchar(num % 10 + '0');
 	}
 	else
