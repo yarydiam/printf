@@ -26,3 +26,13 @@ int	ft_putunsigned(unsigned int num)
 		i += ft_putchar(num + '0');
 	return (i);
 }
+
+/* int main()
+{
+	int	nums = 123;
+	{
+		ft_putunsigned(num);
+		write(1, "\n", 1);
+	return (0);
+	}
+} */
