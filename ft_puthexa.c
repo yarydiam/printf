@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex.c                                        :+:      :+:    :+:   */
+/*   ft_puthexa.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yadiaman <yadiaman@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/05 11:12:26 by yadiaman          #+#    #+#             */
-/*   Updated: 2024/07/05 11:12:26 by yadiaman         ###   ########.fr       */
+/*   Created: 2024/07/08 18:13:19 by yadiaman          #+#    #+#             */
+/*   Updated: 2024/07/08 19:45:12 by yadiaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_puthex(unsigned long long n, char c)
+int	ft_puthexa(unsigned long long int nb, char *base)
 {
-	unsigned long long	i;
+	int		i;
 
 	i = 0;
-	if (n >= 16)
-		i += ft_puthex (n / 16, c);
-	if (c == 'x')
-		ft_putchar("0123456789abcdef"[n % 16]);
-	else if (c == 'X')
-		ft_putchar("0123456789ABCDEF"[n % 16]);
-	i++;
+	if (nb < 16)
+	{
+		i += ft_putchar(base[nb]);
+	}
+	else
+	{
+		i += ft_puthexa(nb / 16, base);
+		i += ft_putchar(base[nb % 16]);
+	}
 	return (i);
 }
 
 /* int main()
 {
-    unsigned long long nb = 42;
-    int num_chars = ft_puthex(nb, 'x');  // Llamada a ft_puthex con el número y el formato de minúsculas
-    printf("\nCharacters printed: %d\n", num_chars);  // Para verificar el número de caracteres impresos
+    int count;
+    count = ft_puthexa(255, "0123456789abcdef");
+    printf("\nTotal characters printed: %d\n", count);
     return 0;
-}
-*/
+}*/

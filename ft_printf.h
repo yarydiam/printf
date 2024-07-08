@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunsigned.c                                   :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yadiaman <yadiaman@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/04 12:36:54 by yadiaman          #+#    #+#             */
-/*   Updated: 2024/07/08 18:14:06 by yadiaman         ###   ########.fr       */
+/*   Created: 2024/07/08 17:01:40 by yadiaman          #+#    #+#             */
+/*   Updated: 2024/07/08 18:04:51 by yadiaman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-int	ft_putunsigned(unsigned int n)
-{
-	int	i;
+# include <stdarg.h>
+# include <unistd.h>
+# include <stdio.h>
+# include <stdint.h>
 
-	i = 0;
-	if (n > 9)
-	{
-		i += ft_putunsigned(n / 10);
-		i += ft_putchar(n % 10 + '0');
-	}
-	else
-		i += ft_putchar(n + '0');
-	return (i);
-}
+int	ft_printf(const char *str, ...);
+int	ft_putchar(int c);
+int	ft_putnbr(int n);
+int	ft_putstr(char *str);
+int	ft_puthexa(unsigned long long int nb, char *base);
+int	ft_putptr(void *n);
+int	ft_putunsigned(unsigned int n);
 
-/* int main()
-{
-	int	nums = 123;
-	{
-		ft_putunsigned(num);
-		write(1, "\n", 1);
-	return (0);
-	}
-} */
+#endif
